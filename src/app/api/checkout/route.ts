@@ -10,13 +10,8 @@ import { NextRequest, NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 export async function POST(_req: NextRequest) {
-  // TODO: implémenter l'appel Stripe
-
   try {
-    console.log("stripePriceId", stripePriceId);
-
     const DOMAIN = process.env.NEXT_PUBLIC_APP_URL;
-    console.log("DOMAIN", DOMAIN);
     const lineItems = stripePriceId
       ? [{ price: stripePriceId + "", quantity: 1 }]
       : [
@@ -46,14 +41,9 @@ export async function POST(_req: NextRequest) {
       },
     });
   } catch (error) {
-    console.log(error);
-
     return NextResponse.json(
       { error: "Failed to creating checkout session :" },
       { status: 500 }
     );
   }
-
-  // return NextResponse.redirect(session.url!, { status: 303 });
-  // return NextResponse.json({ error: "NOT_IMPLEMENTED" }, { status: 501 });
 }

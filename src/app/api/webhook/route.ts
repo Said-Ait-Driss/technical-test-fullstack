@@ -57,7 +57,6 @@ export async function POST(req: NextRequest) {
         },
       });
       console.log("Payment recorded:", payment);
-
       // we can enhance this by send email :)
     }
   } catch (error) {
