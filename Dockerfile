@@ -30,4 +30,4 @@
     COPY --from=builder /app/next.config.mjs ./next.config.mjs
     COPY --from=builder /app/src ./src
     
-    CMD ["sh","-c","npx prisma migrate deploy && node node_modules/next/dist/bin/next start -p 3000"]    
+    CMD ["sh","-c","npx prisma migrate deploy && npx prisma db push && node node_modules/next/dist/bin/next start -p 3000"]    

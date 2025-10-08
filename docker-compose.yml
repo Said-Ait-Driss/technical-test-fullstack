@@ -18,8 +18,9 @@ services:
       DATABASE_URL: postgresql://postgres:postgres@db:5432/appdb
       STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
       STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET}
+      STRIPE_PRICE_ID: ${STRIPE_PRICE_ID}
       NEXT_PUBLIC_APP_URL: http://localhost:3000
-      NODE_ENV: production
+      NODE_ENV: development
     depends_on:
       - db
 volumes:
